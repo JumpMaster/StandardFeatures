@@ -26,6 +26,7 @@ public:
     void loop();
 
     void enableSafeMode(const char *appVersion);
+    void enableLogging();
     void enableLogging(const char *appName, const char *syslogServer, uint16_t sysLogPort = 514);
     void enableDiagnosticPixel(uint8_t pin);
     void enableDiagnosticLed(uint8_t pin);
@@ -145,6 +146,11 @@ StandardFeatures::StandardFeatures()
 StandardFeatures::~StandardFeatures()
 {
     standardPreferences->end();
+}
+
+void StandardFeatures::enableLogging()
+{
+    Log.enableLogging();
 }
 
 void StandardFeatures::enableLogging(const char *appName, const char *syslogServer, uint16_t sysLogPort)
